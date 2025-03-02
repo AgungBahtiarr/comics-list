@@ -1,6 +1,7 @@
 ---
 
 ---
+
 <dialog id="modal_add" class="modal">
   <div class="modal-box">
     <h3 class="text-lg font-bold">Hello!</h3>
@@ -12,11 +13,23 @@
     >
       <fieldset class="fieldset">
         <legend class="fieldset-legend">Comic Name</legend>
-        <input type="text" class="input" placeholder="Type here" name="name" />
+        <input
+          type="text"
+          class="input"
+          placeholder="Type here"
+          name="name"
+          required
+        />
       </fieldset>
       <fieldset class="fieldset">
         <legend class="fieldset-legend">Comic Link</legend>
-        <input type="text" class="input" placeholder="Type here" name="link" />
+        <input
+          type="text"
+          class="input"
+          placeholder="Type here"
+          name="link"
+          required
+        />
       </fieldset>
       <fieldset class="fieldset">
         <legend class="fieldset-legend">Chapter</legend>
@@ -25,6 +38,7 @@
           class="input"
           placeholder="Type here"
           name="chapter"
+          required
         />
       </fieldset>
       <button class="btn">Submit</button>
