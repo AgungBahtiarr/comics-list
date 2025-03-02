@@ -1,7 +1,7 @@
 import { experimental_AstroContainer } from "astro/container";
-import Comic from "../../components/partials/comic.astro";
-import { db } from "../../db";
-import { comicsTable } from "../../db/schema";
+import Comic from "@/components/partials/comic.astro";
+import { db } from "@/db/index";
+import { comicsTable } from "@/db/schema";
 import { eq } from "drizzle-orm";
 
 const container = await experimental_AstroContainer.create();

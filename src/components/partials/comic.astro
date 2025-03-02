@@ -1,6 +1,6 @@
 ---
-import { db } from "../../db";
-import { comicsTable } from "../../db/schema";
+import { db } from "@/db/index";
+import { comicsTable } from "@/db/schema";
 
 export const partial = true;
 const comics = await db.select().from(comicsTable);
@@ -9,11 +9,15 @@ const comics = await db.select().from(comicsTable);
 {
   comics.map((comic) => {
     return (
-      <tr>
+      <tr class="text-center">
         <th />
         <td>{comic.name}</td>
         <td>{comic.link}</td>
-        <td>{comic.chapter}</td>
+        <td>
+            <button class="btn">-</button>
+            <span class="mx-2">{comic.chapter}</span>
+            <button class="btn">+</button>
+          </td>
         <td>
           <button class="btn"
            hx-delete=`/api/comics`

@@ -1,7 +1,7 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Comic from "../components/partials/comic.astro";
-import ComicAdd from "../components/comicadd.astro";
+import Layout from "@/layouts/Layout.astro";
+import Comic from "@/components/partials/comic.astro";
+import ComicAdd from "@/components/comicadd.astro";
 ---
 
 <Layout>
@@ -13,11 +13,11 @@ import ComicAdd from "../components/comicadd.astro";
         <!-- head -->
         <thead>
           <tr>
-            <th></th>
-            <th>Name</th>
-            <th>Link</th>
-            <th>Chapter</th>
-            <th>Action</th>
+            <th class="text-center"></th>
+            <th class="text-center">Name</th>
+            <th class="text-center">Link</th>
+            <th class="text-center">Chapter</th>
+            <th class="text-center">Action</th>
             <th>
               <button class="btn" onclick="modal_add.showModal()"
                 >Add Comics</button
