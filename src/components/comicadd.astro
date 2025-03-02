@@ -1,0 +1,39 @@
+---
+
+---
+<dialog id="modal_add" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Hello!</h3>
+    <form
+      hx-post="/api/comics"
+      hx-target="#comics"
+      hx-swap="beforeend"
+      hx-on:htmx:after-request="document.getElementById('modal_add').close();"
+    >
+      <fieldset class="fieldset">
+        <legend class="fieldset-legend">Comic Name</legend>
+        <input type="text" class="input" placeholder="Type here" name="name" />
+      </fieldset>
+      <fieldset class="fieldset">
+        <legend class="fieldset-legend">Comic Link</legend>
+        <input type="text" class="input" placeholder="Type here" name="link" />
+      </fieldset>
+      <fieldset class="fieldset">
+        <legend class="fieldset-legend">Chapter</legend>
+        <input
+          type="text"
+          class="input"
+          placeholder="Type here"
+          name="chapter"
+        />
+      </fieldset>
+      <button class="btn">Submit</button>
+    </form>
+
+    <div class="modal-action">
+      <form method="dialog">
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
