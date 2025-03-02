@@ -1,0 +1,1 @@
+ALTER TABLE `comics_table` MODIFY COLUMN `id` int AUTO_INCREMENT NOT NULL;

@@ -1,11 +1,26 @@
 ---
+import { FileX } from "lucide-astro";
+import { db } from "../../db";
+import { comicsTable } from "../../db/schema";
+
 export const partial = true;
-const { name, link, chapter } = Astro.props;
+const comics = await db.select().from(comicsTable);
 ---
 
-<tr>
-  <th></th>
-  <td>{name}</td>
-  <td>{link}</td>
-  <td>{chapter}</td>
-</tr>
+{
+  comics.map((comic) => {
+    return (
+      <tr>
+        <th />
+        <td>{comic.name}</td>
+        <td>{comic.link}</td>
+        <td>{comic.chapter}</td>
+        <td>
+          <button class="btn">
+            <FileX />
+          </button>
+        </td>
+      </tr>
+    );
+  })
+}

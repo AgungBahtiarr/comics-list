@@ -2,12 +2,20 @@
 import Layout from "../layouts/Layout.astro";
 import Comic from "../components/partials/comic.astro";
 import ComicAdd from "../components/comicadd.astro";
+import { Plus } from "lucide-astro";
+
+import { db } from "../db/index";
+import { comicsTable } from "../db/schema";
+
+const comics = await db.select().from(comicsTable);
 ---
 
 <Layout>
   <div class="flex justify-center items-center h-screen">
-    <div class="overflow-x-auto">
-      <table class="table table-zebra">
+    <div
+      class="overflow-x-auto border-1 border-[#f8f8f8] rounded-2xl shadow-lg"
+    >
+      <table class="table">
         <!-- head -->
         <thead>
           <tr>
@@ -15,9 +23,10 @@ import ComicAdd from "../components/comicadd.astro";
             <th>Name</th>
             <th>Link</th>
             <th>Chapter</th>
+            <th>Action</th>
             <th>
               <button class="btn" onclick="modal_add.showModal()"
-                >Add Comics</button
+                ><Plus />Add Comics</button
               >
               <ComicAdd />
             </th>
