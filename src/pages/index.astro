@@ -2,12 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import Comic from "../components/partials/comic.astro";
 import ComicAdd from "../components/comicadd.astro";
-import { Plus } from "lucide-astro";
-
-import { db } from "../db/index";
-import { comicsTable } from "../db/schema";
-
-const comics = await db.select().from(comicsTable);
 ---
 
 <Layout>
@@ -26,7 +20,7 @@ const comics = await db.select().from(comicsTable);
             <th>Action</th>
             <th>
               <button class="btn" onclick="modal_add.showModal()"
-                ><Plus />Add Comics</button
+                >Add Comics</button
               >
               <ComicAdd />
             </th>

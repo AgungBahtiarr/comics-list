@@ -1,5 +1,4 @@
 ---
-import { FileX } from "lucide-astro";
 import { db } from "../../db";
 import { comicsTable } from "../../db/schema";
 
@@ -16,8 +15,12 @@ const comics = await db.select().from(comicsTable);
         <td>{comic.link}</td>
         <td>{comic.chapter}</td>
         <td>
-          <button class="btn">
-            <FileX />
+          <button class="btn"
+           hx-delete=`/api/comics`
+           hx-vals={`{"id": ${comic.id}}`} 
+           hx-target="#comics" 
+           hx-swap="outerHtml">
+            Delete
           </button>
         </td>
       </tr>
