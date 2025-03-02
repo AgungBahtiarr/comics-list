@@ -14,9 +14,19 @@ const comics = await db.select().from(comicsTable);
         <td>{comic.name}</td>
         <td>{comic.link}</td>
         <td>
-            <button class="btn">-</button>
+            <button
+              class="btn" 
+              hx-patch={`/api/comics/chapters/min`}
+              hx-target="#comics"  
+              hx-swap="outerHtml"  
+              hx-vals={`{"id": ${comic.id}}`}
+              >-</button>
             <span class="mx-2">{comic.chapter}</span>
-            <button class="btn">+</button>
+            <button class="btn" 
+              hx-patch={`/api/comics/chapters/add`}
+              hx-target="#comics"  
+              hx-swap="outerHtml"  
+              hx-vals={`{"id": ${comic.id}}`}>+</button>
           </td>
         <td>
           <button class="btn"
